@@ -1,25 +1,35 @@
 #include <stdio.h>
 #include <iostream>
 #include <string>
+#include <iomanip>
+#include <stdlib.h>
+#include <math.h>
+using namespace std;
 
 class RSA {
     private:
-        int p;
-        int q;
-        string message;
-        long long[] openKey;
-        long long[] secretKey;
+        int p; // first prime number
+        int q; // second prime number
+        int m; // divider
+        int n; // second part of the keys
+        int secretKey;
+        int publicKey;
     public:
         RSA() {};
-        RSA(string, int, int, int);
-        ~RSA() {};
-        int phi();
-        string encode();
-        string decode();
-        void setMessage(string);
+        RSA(int, int);
+        ~RSA() {};        
+        double encode(int);
+        double decode(double);
         void setQ(int);
         void setP(int);
-        string getMessage();
+        void formKeys();
+        int getSecretKey();
+        int getPublicKey();
         int getQ();
         int getP();
-}
+        int getM();
+        int getN();
+        int eratosphen(int);
+        int gcd(int, int);
+        int ASCIItranslate(char);
+};
